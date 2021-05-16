@@ -1,0 +1,121 @@
+format = """\
+    $username\
+    $hostname\
+    $kubernetes\
+    $directory\
+    ${custom.giturl}\
+    $git_branch\
+    $git_commit\
+    $git_state\
+    $git_status\
+    $hg_branch\
+    $docker_context\
+    $package\
+    $dotnet\
+    $elixir\
+    $elm\
+    $erlang\
+    $golang\
+    $java\
+    $julia\
+    $nim\
+    $nodejs\
+    $ocaml\
+    $php\
+    $purescript\
+    $python\
+    $ruby\
+    $rust\
+    $terraform\
+    $zig\
+    $nix_shell\
+    $conda\
+    $memory_usage\
+    $aws\
+    $env_var\
+    $crystal\
+    $cmd_duration\
+    $line_break\
+    $jobs\
+    $battery\
+    $time\
+    $character\
+"""
+
+[time]
+disabled = false
+format="⌚[$time]($style)"
+
+[python]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[custom.giturl]
+# disabled = true
+description = "Display symbol for remote Git server"
+command = """
+IFS="/"
+GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
+read -ra GIT_HOST <<< "$GIT_REMOTE"
+
+if [[ "$GIT_REMOTE" =~ "github" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "gitlab" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+elif [[ "$GIT_REMOTE" =~ "git" ]]; then
+    GIT_REMOTE_SYMBOL=" "
+else
+    GIT_REMOTE_SYMBOL=" localhost"
+fi
+
+printf "$GIT_REMOTE_SYMBOL${GIT_HOST[2]:-$GIT_HOST}"
+IFS=" "
+"""
+shell = ["bash", "--noprofile", "--norc"]
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+style = "bright-black bold"
+format = "at [$output]($style) "
+
+[custom.lastcommit]
+description = "Display last commit hash and message"
+command = "git show -s --format='%h \"%s\"'"
+when = 'git rev-parse --is-inside-work-tree 2> /dev/null'
+style = "bright-yellow bold"
+format = "[$output]($style) "
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = true
+threshold = 0
+
+#[git_branch]
+#symbol = " "
+
+#[git_state]
+#merge = "" 
+
+#[git_status]
+#disabled = true
+#conflicted = ""
+#modified = ""
+#untracked = ""
+
+[docker_context]
+format = "via [🐋 $context](blue bold)"
+disabled = false
+only_with_files = true
+
+[custom.docker]
+description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
+files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
+when = """ command -v docker &> /dev/null; exit (echo $?); """
+format = "on 🐳"
+
+#[custom.wakatime]
+#command = "wakatime --today"
+#when = "false"

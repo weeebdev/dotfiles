@@ -49,4 +49,4 @@ export VISUAL=(which subl)
 
 
 # Direnv setup
-direnv hook fish | source
+# direnv hook fish | source

@@ -89,8 +89,6 @@ format = "[$output]($style) "
 
 [memory_usage]
 disabled = false
-show_percentage = true
-show_swap = true
 threshold = 0
 
 #[git_branch]

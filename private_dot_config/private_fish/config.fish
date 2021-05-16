@@ -19,7 +19,7 @@ export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 ### Editor
-export VISUAL=(which subl)
+# export VISUAL=(which subl)
 
 ### GWSL export
 # set --export WSL2 1

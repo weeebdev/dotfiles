@@ -1,0 +1,23 @@
+# Personal github account
+Host github.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_github
+
+# Personal gitlab account
+Host gitlab.com
+   HostName gitlab.com
+   User bgit
+   IdentityFile ~/.ssh/id_rsa_gitlab
+
+# Personal heroku account
+Host heroku.com
+   HostName heroku.com
+   IdentityFile ~/.ssh/id_rsa_heroku
+   IdentitiesOnly yes
+
+# Personal gitlab account
+Host {{ (vault "dotfiles/dar-job").data.data.git_host}} 
+   HostName {{ (vault "dotfiles/dar-job").data.data.git_host}} 
+   User bgit
+   IdentityFile ~/.ssh/id_rsa_gitlab_job

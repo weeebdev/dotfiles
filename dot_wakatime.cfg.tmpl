@@ -4,8 +4,8 @@ api_key = {{ gopass "wakatime" }}
 status_bar_coding_activity = true
 status_bar_enabled = true
 hide_file_names = 
-    /home/adil/git/private
-    /home/adil/job
+    {{ .chezmoi.homeDir }}/git/private
+    {{ .chezmoi.homeDir }}/job
 hide_project_names = 
-    /home/adil/git/private
-    /home/adil/job
+    {{ .chezmoi.homeDir }}/git/private
+    {{ .chezmoi.homeDir }}/job

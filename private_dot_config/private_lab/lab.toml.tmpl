@@ -1,0 +1,5 @@
+
+[core]
+  host = "https://gitlab.com"
+  token = "{{ gopass "tokens/gitlab_lab" }}"
+  user = "{{ (vault "dotfiles/dar-job").data.data.name }}"

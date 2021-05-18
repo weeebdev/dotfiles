@@ -1,11 +1,9 @@
-alias mklink=" . mklink.sh"
 alias bat=batcat
 alias sau="sudo apt update && sudo apt upgrade"
 alias ls="colorls --dark"
 alias nun="nvm use node"
-alias shutdown="wsl.exe -t Ubuntu-20.04"
 
-{{  if (.chezmoi.kernel.osrelease | lower | contains "microsoft" }}
+{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 alias mklink=" . mklink.sh"
 alias shutdown="wsl.exe -t Ubuntu-20.04"
 {{ end }}

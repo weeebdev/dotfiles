@@ -1,11 +1,5 @@
-#starship init fish | source
-
 ### Sourcing aliases
 source $HOME/.fish_aliases
-
-### Exporting display for x server
-export DISPLAY=(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
-# export GDK_DPI_SCALING=1.25o
 
 ### Exporting bin folder
 export PATH="$HOME/bin:$PATH"
@@ -17,6 +11,12 @@ export PATH="$HOME/.local/bin:$PATH"
 export GOPATH="$HOME/go"
 export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+
+{{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+
+### Exporting display for x server
+export DISPLAY=(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+# export GDK_DPI_SCALING=1.25o
 
 ### Editor
 # export VISUAL=(which subl)
@@ -50,3 +50,4 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 # Direnv setup
 # direnv hook fish | source
+{{ end }}

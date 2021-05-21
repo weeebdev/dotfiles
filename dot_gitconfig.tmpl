@@ -1,0 +1,10 @@
+[user]
+	email = {{ (vault "dotfiles/meta").data.data.email }} 
+	name = {{ (vault "dotfiles/meta").data.data.name }} 
+[includeIf "gitdir:job/"]
+	path = .gitconfig-job
+[core]
+	editor = vim
+	excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+[alias]
+	pushd = push -u origin HEAD

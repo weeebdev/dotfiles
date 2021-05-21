@@ -12,6 +12,8 @@ export GOPATH="$HOME/go"
 export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
+export AWS_PROFILE=k8s.watcher
+
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
 ### Exporting display for x server

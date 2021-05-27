@@ -13,7 +13,9 @@ export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 export AWS_PROFILE=k8s.watcher
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+### Brew setup
+export PATH="$HOME/linuxbrew/.linuxbrew/bin/brew:$PATH"
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 

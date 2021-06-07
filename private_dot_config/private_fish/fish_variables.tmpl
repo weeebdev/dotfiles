@@ -1,11 +1,17 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:{{ .chezmoi.homeDir }}/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:{{ .chezmoi.homeDir }}/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e{{ .chezmoi.homeDir }}\x24
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_dracula_2F_fish_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/conf\x2ed/dracula\x2efish
 SETUVAR _fisher_edc_2F_bass_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__bass\x2epy\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_evanlucas_2F_fish_2D_kubectl_2D_completions_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/completions/kubectl\x2efish
+SETUVAR _fisher_jethrokuan_2F_z_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z_add\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z_clean\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/__z_complete\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:{{ .chezmoi.homeDir }}/\x2econfig/fish/functions/fisher\x2efish\x1e{{ .chezmoi.homeDir }}/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eedc/bass\x1edracula/fish\x1eevanlucas/fish\x2dkubectl\x2dcompletions
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eedc/bass\x1edracula/fish\x1eevanlucas/fish\x2dkubectl\x2dcompletions\x1ejethrokuan/z
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7

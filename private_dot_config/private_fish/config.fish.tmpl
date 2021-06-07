@@ -12,11 +12,6 @@ export GOPATH="$HOME/go"
 export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
-export AWS_PROFILE=k8s.watcher
-
-### Brew setup
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
 ### Exporting display for x server
@@ -55,4 +50,12 @@ export DISPLAY=(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
 
 # Direnv setup
 # direnv hook fish | source
+
+{{ else }}
+
+export AWS_PROFILE=k8s.watcher
+
+### Brew setup
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
 {{ end }}

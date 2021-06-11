@@ -56,9 +56,8 @@ symbol = " "
 # disabled = true
 description = "Display symbol for remote Git server"
 command = """
-IFS="/"
 GIT_REMOTE=$(command git ls-remote --get-url 2> /dev/null)
-read -ra GIT_HOST <<< "$GIT_REMOTE"
+GIT_REMOTE_URL=$(echo $GIT_REMOTE | sed -E 's/^https?:\\/\\/(.+@)?//; s/\\.git$//; s/.+@(.*):(.*)$/\\1\\/\\2/; s/\\/$//')
 
 if [[ "$GIT_REMOTE" =~ "github" ]]; then
     GIT_REMOTE_SYMBOL=" "
@@ -69,11 +68,9 @@ elif [[ "$GIT_REMOTE" =~ "bitbucket" ]]; then
 elif [[ "$GIT_REMOTE" =~ "git" ]]; then
     GIT_REMOTE_SYMBOL=" "
 else
-    GIT_REMOTE_SYMBOL=" localhost"
+    GIT_REMOTE_SYMBOL=" "
 fi
-
-printf "$GIT_REMOTE_SYMBOL${GIT_HOST[2]:-$GIT_HOST}"
-IFS=" "
+echo "$GIT_REMOTE_SYMBOL$GIT_REMOTE_URL"
 """
 shell = ["bash", "--noprofile", "--norc"]
 when = 'git rev-parse --is-inside-work-tree 2> /dev/null'

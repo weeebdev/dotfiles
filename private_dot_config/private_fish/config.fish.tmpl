@@ -12,6 +12,10 @@ export GOPATH="$HOME/go"
 export GOROOT=/usr/local/go
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
+{{- if lookPath "vault" }}
+export VAULT_ADDR=https://weeebdev-vault.herokuapp.com
+{{- end }}
+
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 
 ### Exporting display for x server

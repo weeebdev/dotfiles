@@ -1,0 +1,9 @@
+{{- if not (lookPath "fish") }}
+fish
+fish/**
+{{- end }}
+
+{{- if not (lookPath "glab") }}
+lab
+lab/**
+{{- end }} 

@@ -14,6 +14,11 @@ export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 {{- if lookPath "vault" }}
 export VAULT_ADDR=https://weeebdev-vault.herokuapp.com
+
+{{- if lookPath "pre-commit"}}
+export GITGUARDIAN_API_KEY={{ (vault "dotfiles/gitguardian").data.data.ggshield }}
+{{- end}}
+
 {{- end }}
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}

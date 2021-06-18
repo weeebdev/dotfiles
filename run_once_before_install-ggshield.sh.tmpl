@@ -1,0 +1,9 @@
+{{- if not (lookPath "ggshield") -}}
+
+#!/bin/sh
+
+sudo pip install ggshield
+cd {{ .chezmoi.sourceDir }}
+ggshield install --mode local
+
+{{- end -}}

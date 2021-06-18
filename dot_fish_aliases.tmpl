@@ -3,6 +3,8 @@ alias sau="sudo apt update -y && sudo apt upgrade -y"
 alias ls="colorls --dark"
 alias nun="nvm use node"
 
+source $HOME/.git_aliases
+
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 alias mklink=" . mklink.sh"
 alias shutdown="wsl.exe -t Ubuntu-20.04"

@@ -9,3 +9,9 @@ source $HOME/.git_aliases
 alias mklink=" . mklink.sh"
 alias shutdown="wsl.exe -t Ubuntu-20.04"
 {{ end }}
+
+{{- if lookPath "kitty" }}
+alias icat="kitty +kitten icat"
+alias d="kitty +kitten diff"
+alias clip="kitty +kitten clipboard"
+{{- end }}

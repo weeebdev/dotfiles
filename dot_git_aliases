@@ -15,6 +15,7 @@ alias gl='git pull'
 alias gup='git pull --rebase'
 #compdef _git gup=git-fetch
 alias gp='git push'
+alias gpd='git push -u origin HEAD'
 #compdef _git gp=git-push
 alias gd='git diff'
 
@@ -34,6 +35,7 @@ alias gca!='git commit -v -a --amend'
 alias gcmsg='git commit -m'
 #compdef _git gcmsg=git-commit
 alias gco='git checkout'
+alias gcob='git checkout -b'
 #compdef _git gco=git-checkout
 alias gcm='git checkout master'
 alias gr='git remote'

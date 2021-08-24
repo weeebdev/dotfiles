@@ -1,10 +1,10 @@
 alias bat=batcat
-alias auu="sudo apt update -y && sudo apt upgrade -y"
+alias sau="sudo apt update -y && sudo apt upgrade -y"
 alias ls="colorls --dark --gs"
 alias nun="nvm use node"
 alias tk=take
 
-source $HOME/.git_aliases
+source ./.git_aliases
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 alias mklink=" . mklink.sh"

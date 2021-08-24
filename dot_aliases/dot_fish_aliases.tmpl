@@ -4,7 +4,7 @@ alias ls="colorls --dark --gs"
 alias nun="nvm use node"
 alias tk=take
 
-source ./.git_aliases
+source $HOME/.aliases/.git_aliases
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 alias mklink=" . mklink.sh"

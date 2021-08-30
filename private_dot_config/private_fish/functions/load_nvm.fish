@@ -8,10 +8,10 @@ function load_nvm --on-variable="PWD"
     if test "$nvmrc_node_version" = "N/A"
       nvm install (cat $nvmrc_path)
     else if test nvmrc_node_version != node_version
-      nvm use $nvmrc_node_version
+      nvm use $nvmrc_node_version --silent
     end
   else if test "$node_version" != "$default_node_version"
 #    echo "Reverting to default Node version"
-    nvm use default
+    nvm use default --silent
   end
 end

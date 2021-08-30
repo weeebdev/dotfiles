@@ -1,0 +1,4 @@
+alias chez='chezmoi'
+alias chezd='chezmoi diff'
+alias cheza='chezmoi apply'
+alias chezg='chezmoi git --'

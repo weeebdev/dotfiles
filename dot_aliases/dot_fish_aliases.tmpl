@@ -5,6 +5,8 @@ alias tk=take
 
 source $HOME/.aliases/.git_aliases
 source $HOME/.aliases/.apt
+source $HOME/.aliases/.chezmoi
+
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 alias mklink=" . mklink.sh"

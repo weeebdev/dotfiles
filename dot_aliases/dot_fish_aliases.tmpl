@@ -8,6 +8,9 @@ source $HOME/.aliases/.git_aliases
 source $HOME/.aliases/.apt
 source $HOME/.aliases/.chezmoi
 
+{{- if lookPath "npm" }}
+source $HOME/.aliases/.npm
+{{- end }}
 
 {{ if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 alias mklink=" . mklink.sh"

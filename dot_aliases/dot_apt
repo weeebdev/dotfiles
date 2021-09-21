@@ -1,5 +1,5 @@
 alias agu='sudo apt update -y'
-alias aguu='sudo apt update -y && sudo apt upgrady -y'
+alias aguu='sudo apt update -y && sudo apt upgrade -y'
 alias agr='sudo apt remove'
 alias agi='sudo apt install -y'
 alias ags='sudo apt search'
